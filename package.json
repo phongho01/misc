@@ -4,9 +4,20 @@
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "hardhat": "^2.16.1"
   },
+  "scripts": {
+    "deploy-bank-bsc": "cross-env CONTRACT_TYPE=bank-single-file npx hardhat run scripts/deploy.ts --network bscTestnet",
+    "deploy-bank-cvc": "cross-env CONTRACT_TYPE=bank-single-file npx hardhat run scripts/deploy.ts --network cvcTestnet",
+    "deploy-bank-multiple-file-bsc": "cross-env CONTRACT_TYPE=bank-multiple-file npx hardhat run scripts/deploy.ts --network bscTestnet",
+    "deploy-bank-multiple-file-cvc": "cross-env CONTRACT_TYPE=bank-multiple-file npx hardhat run scripts/deploy.ts --network cvcTestnet",
+    "deploy-tether-bsc": "cross-env CONTRACT_TYPE=tether npx hardhat run scripts/deploy.ts --network bscTestnet",
+    "deploy-tether-cvc": "cross-env CONTRACT_TYPE=tether npx hardhat run scripts/deploy.ts --network cvcTestnet",
+    "deploy-nft-bsc": "cross-env CONTRACT_TYPE=nft npx hardhat run scripts/deploy.ts --network bscTestnet",
+    "deploy-nft-cvc": "cross-env CONTRACT_TYPE=nft npx hardhat run scripts/deploy.ts --network cvcTestnet"
+  },
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.3",
     "@openzeppelin/contracts": "^4.9.2",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "sol-merger": "^4.4.0"
   }
