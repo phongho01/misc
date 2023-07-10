@@ -1,10 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.16;
 
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-
-contract Bank is ReentrancyGuard {
+contract Bank {
     event Deposited(address indexed account, uint256 amount);
     event Withdrawn(address indexed account, uint256 amount);
     event Transferred(address indexed from, address indexed to, uint256 amount);
@@ -23,7 +20,7 @@ contract Bank is ReentrancyGuard {
      * emit { Deposited } event
      */
     function deposit() external payable {
-        require(msg.value > 0, "Invalid value");
+        require(msg.value > 0, "Invalid value!");
         balanceOf[msg.sender] += msg.value;
 
         emit Deposited(msg.sender, msg.value);
@@ -36,7 +33,7 @@ contract Bank is ReentrancyGuard {
      *
      * emit { Withdrawn } event
      */
-    function withdraw(uint256 _amount) external nonReentrant {
+    function withdraw(uint256 _amount) external {
         require(_amount <= balanceOf[msg.sender], "Balance is not enough");
         balanceOf[msg.sender] -= _amount;
 
@@ -52,8 +49,8 @@ contract Bank is ReentrancyGuard {
      * @param _to Receiver
      * @param _amount Amount will be transfered
      */
-    function transfer(address _to, uint256 _amount) external nonReentrant {
-        require(_amount <= balanceOf[msg.sender], "Balance is not enough");
+    function transfer(address _to, uint256 _amount) external {
+        require(_amount <= balanceOf[msg.sender], "Balance is not enough!");
         require(msg.sender != _to, "Can not transfer to yourself");
         balanceOf[msg.sender] -= _amount;
         balanceOf[_to] += _amount;

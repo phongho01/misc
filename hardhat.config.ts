@@ -7,6 +7,7 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {
       accounts: { count: 20 },
+      chainId: 31337
     },
     bscTestnet: {
       url: 'https://data-seed-prebsc-1-s1.binance.org:8545/',

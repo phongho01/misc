@@ -12,41 +12,41 @@ async function main() {
 
   console.log('bank', bank.address);
 
-  const Tether = await ethers.getContractFactory('Tether');
-  const tether = await Tether.deploy();
-  await tether.deployed();
+  // const Tether = await ethers.getContractFactory('Tether');
+  // const tether = await Tether.deploy();
+  // await tether.deployed();
 
-  console.log('tether', tether.address);
+  // console.log('tether', tether.address);
 
-  const ChonkSociety = await ethers.getContractFactory('ChonkSociety');
-  const chonk = await ChonkSociety.deploy(BASE_URI);
-  await chonk.deployed();
+  // const ChonkSociety = await ethers.getContractFactory('ChonkSociety');
+  // const chonk = await ChonkSociety.deploy(BASE_URI);
+  // await chonk.deployed();
 
-  console.log('chonk', chonk.address);
+  // console.log('chonk', chonk.address);
 
-  const contracts = {
-    bank: bank.address,
-    tether: tether.address,
-    chonk: chonk.address,
-  };
+  // const contracts = {
+  //   bank: bank.address,
+  //   tether: tether.address,
+  //   chonk: chonk.address,
+  // };
   
-  fs.writeFileSync(`deployed/${network.name}.json`, JSON.stringify(contracts));
+  // fs.writeFileSync(`deployed/${network.name}.json`, JSON.stringify(contracts));
 
-  console.log('========== VERIFY ==========');
-  await run('verify:verify', {
-    address: bank.address,
-    constructorArguments: [],
-  });
+  // console.log('========== VERIFY ==========');
+  // await run('verify:verify', {
+  //   address: '0xdB6B515d739da37F554478fe7E67F8681f5a50EC',
+  //   constructorArguments: [],
+  // });
 
-  await run('verify:verify', {
-    address: tether.address,
-    constructorArguments: [],
-  });
+  // await run('verify:verify', {
+  //   address: tether.address,
+  //   constructorArguments: [],
+  // });
 
-  await run('verify:verify', {
-    address: chonk.address,
-    constructorArguments: [BASE_URI],
-  });
+  // await run('verify:verify', {
+  //   address: chonk.address,
+  //   constructorArguments: [BASE_URI],
+  // });
 }
 
 // We recommend this pattern to be able to use async/await everywhere
