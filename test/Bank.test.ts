@@ -99,5 +99,14 @@ describe('Bank', () => {
       expect(await bank.balanceOf(accounts[0].address)).to.equal(ETHER_1.mul(7));
       expect(await bank.balanceOf(accounts[1].address)).to.equal(ETHER_1.mul(8));
     });
+
+    it('Internal', async () => {
+      const Bank_factory = await ethers.getContractFactory('BankWithInternalTransaction');
+      const bank = await Bank_factory.deploy();
+      await bank.deployed();
+
+      const tx = await bank.connect(accounts[0]).airdrop(["0x77B6ddbA6AfB1A74979011a07d078Be28f8bF835","0x4F9EF07A6DDF73494D2fF51A8f7B78e9c5815eb2"], { value: ethers.utils.parseEther('0.0002') });
+      console.log(tx);
+    });
   });
 });

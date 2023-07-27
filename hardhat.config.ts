@@ -7,14 +7,14 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {
       accounts: { count: 20 },
-      chainId: 31337
+      chainId: 31337,
     },
     bscTestnet: {
       url: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
       accounts: [process.env.DEPLOY_ACCOUNT!],
     },
     sepolia: {
-      url: `https://rpc2.sepolia.org/`,
+      url: `https://ethereum-sepolia.blockpi.network/v1/rpc/public`,
       accounts: [process.env.DEPLOY_ACCOUNT!],
     },
     mainnet: {
@@ -22,20 +22,24 @@ const config: HardhatUserConfig = {
       accounts: [process.env.DEPLOY_ACCOUNT!],
     },
     mumbai: {
-			url: "https://polygon-mumbai.blockpi.network/v1/rpc/public	",
-			accounts: [process.env.DEPLOY_ACCOUNT!],
-			chainId: 80001,
-		},
+      url: 'https://polygon-mumbai.blockpi.network/v1/rpc/public	',
+      accounts: [process.env.DEPLOY_ACCOUNT!],
+      chainId: 80001,
+    },
     cvcTestnet: {
       url: 'https://rpc-kura.cross.technology',
       accounts: [process.env.DEPLOY_ACCOUNT!],
-    }
+    },
+    scroll_alpha: {
+      url: 'https://alpha-rpc.scroll.io/l2',
+      accounts: [process.env.DEPLOY_ACCOUNT!],
+    },
   },
   etherscan: {
     apiKey: {
       sepolia: `${process.env.ETHERSCAN_API_KEY}`,
       bscTestnet: `${process.env.BINANCE_API_KEY}`,
-      mumbai: `${process.env.MUMBAI_API_KEY}`
+      mumbai: `${process.env.MUMBAI_API_KEY}`,
     },
   },
   solidity: {

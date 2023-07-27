@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.16;
 
-import { IBank } from './IBank.sol';
+import { IBank } from "./IBank.sol";
 
 contract BankMultipleFile is IBank {
     event Deposited(address indexed account, uint256 amount);
@@ -39,7 +39,7 @@ contract BankMultipleFile is IBank {
         require(_amount <= balanceOf[msg.sender], "Balance is not enough");
         balanceOf[msg.sender] -= _amount;
 
-        (bool success, ) = payable(msg.sender).call{value: _amount}("");
+        (bool success, ) = payable(msg.sender).call{ value: _amount }("");
         require(success, "Withdraw fail");
 
         emit Withdrawn(msg.sender, _amount);

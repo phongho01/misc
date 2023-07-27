@@ -1,23 +1,23 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.16;
 
-import '@openzeppelin/contracts/utils/Strings.sol';
-import '@openzeppelin/contracts/utils/Counters.sol';
-import '@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol';
-import '@openzeppelin/contracts/utils/structs/EnumerableSet.sol';
+import "@openzeppelin/contracts/utils/Strings.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
 contract ChonkSociety is ERC721URIStorage {
     using Strings for uint256;
     using EnumerableSet for EnumerableSet.UintSet;
     using Counters for Counters.Counter;
 
-    string public constant baseExtension = '.json';
+    string public constant baseExtension = ".json";
     /**
      * @notice Token Id
      */
     Counters.Counter public tokenIds;
 
-    string public baseURI = '';
+    string public baseURI = "";
 
     /**
      * @dev List token id of owner
@@ -28,7 +28,7 @@ contract ChonkSociety is ERC721URIStorage {
      * @notice null Constructor
      * @param _baseURI Base URI of NFT
      */
-    constructor(string memory _baseURI) ERC721('Chonk Society', 'CHONK') {
+    constructor(string memory _baseURI) ERC721("Chonk Society", "CHONK") {
         baseURI = _baseURI;
     }
 
@@ -41,7 +41,7 @@ contract ChonkSociety is ERC721URIStorage {
     }
 
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
-        require(_exists(tokenId), 'ERC721Metadata: URI query for nonexistent token');
+        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token!");
         return string(abi.encodePacked(baseURI, tokenId.toString(), baseExtension));
     }
 
@@ -63,7 +63,12 @@ contract ChonkSociety is ERC721URIStorage {
      *
      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
      */
-    function _beforeTokenTransfer(address from, address to, uint256 firstTokenId, uint256 batchSize) internal virtual override {
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 firstTokenId,
+        uint256 batchSize
+    ) internal virtual override {
         if (from != address(0) && to != address(0)) {
             _tokensOfOwner[from].remove(firstTokenId);
             _tokensOfOwner[to].add(firstTokenId);
