@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
-contract ChonkSociety is ERC721URIStorage {
+contract LeagueOfLegends is ERC721URIStorage {
     using Strings for uint256;
     using EnumerableSet for EnumerableSet.UintSet;
     using Counters for Counters.Counter;
