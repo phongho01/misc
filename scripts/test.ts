@@ -7,6 +7,7 @@ const BASE_URI = 'https://chonksociety.s3.us-east-2.amazonaws.com/metadata/';
 async function main() {
   console.log('========== STARTING ==========');
   const [deployer, ...accounts] = await ethers.getSigners();
+  console.log('deployer', deployer.address)
 
   // const nonce = await deployer.getTransactionCount();
   // console.log('nonce', nonce);
@@ -31,22 +32,26 @@ async function main() {
   // const tx2 = await deployer.sendTransaction(txData);
   // console.log('hash 2 ===>', tx2.hash);
 
-  const leagueOfLegends = await ethers.getContractFactory('LeagueOfLegends');
-  const LoL = await leagueOfLegends.deploy(BASE_URI);
-  console.log('LoL', LoL.address);
-  await LoL.deployed();
+  // const leagueOfLegends = await ethers.getContractFactory('LeagueOfLegends');
+  // const LoL = await leagueOfLegends.deploy(BASE_URI);
+  // console.log('LoL', LoL.address);
+  // await LoL.deployed();
   // LoL: 0x9b42ed936c5fedf3ca20a2d97322531b1398412f
   // LoL 2: 0x8605d5087dD2EE45C747b089bb6bC48c66fD3B81
-  // lil pudgys: 
-  // const LoL = leagueOfLegends.attach("0x4dB14A96E12340e2BAc2f79D9884c9E215E343F0");
+  // lil pudgys:
+  // const LoL = leagueOfLegends.attach("0xF6E568595fAeE7A700d6DddE56bf8d4985Ab335f");
 
-  const tx = await LoL.connect(deployer).mint(deployer.address, 1);
+  // const tx = await LoL.connect(deployer).mint(deployer.address, 3);
   // const tx = await LoL.connect(deployer).transferFrom(deployer.address, "0x0000000000000000000000000000000000000000", 8);
-  
-  // const tx = await  LoL.connect(deployer).burn(2);
 
-  console.log(tx.hash);
-  await tx.wait();
+  // const tx = await  LoL.connect(deployer).burn(1);
+
+  // console.log(tx.hash);
+  // await tx.wait();
+
+  const ERC20 = await ethers.getContractFactory("LiteCoin");
+  const erc20 = ERC20.attach("0x603c668fd2dd8477b755f43c9ccac6a409684717")
+  console.log(await erc20.totalSupply())
 }
 
 // We recommend this pattern to be able to use async/await everywhere
