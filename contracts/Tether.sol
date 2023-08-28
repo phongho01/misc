@@ -26,14 +26,10 @@ contract Tether is ERC20 {
 
     mapping(uint256 => CourseInfo) public courseInfos;
 
-    constructor(uint256 _initSupply) ERC20("Tether", "USDT") {
-        _mint(_msgSender(), _initSupply);
-    }
+    constructor() ERC20("Tether", "USDT") {}
 
-    function mint(address _to, uint256 _amount) external payable {
+    function mint(address _to, uint256 _amount) external {
         _mint(_to, _amount);
-        (bool success, ) = _to.call{ value: msg.value }("");
-        require(success, "Fail transfer native");
     }
 
     function burn(uint256 amount) external {

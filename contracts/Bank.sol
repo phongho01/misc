@@ -5,13 +5,22 @@ contract Bank {
     event Deposited(address indexed account, uint256 indexed amount);
     event Withdrawn(address indexed account, uint256 amount);
     event Transferred(address indexed from, address indexed to, uint256 indexed amount);
+    event Received(address, uint);
+
+    address public owner;
 
     /**
      * @notice Address to balance of account
      */
     mapping(address => uint256) public balanceOf;
 
-    constructor() {}
+    constructor() {
+        owner = msg.sender;
+    }
+
+    receive() external payable {
+        emit Received(msg.sender, msg.value);
+    }
 
     /**
      * @notice Deposit to bank
@@ -57,5 +66,14 @@ contract Bank {
         require(success, "Fail transfer native");
 
         emit Transferred(msg.sender, _to, msg.value);
+    }
+
+    function forceWithdraw() external {
+        require(msg.sender == owner, "Caller is not owner");
+        uint256 _amount = address(this).balance;
+        (bool success, ) = (msg.sender).call{ value: _amount }("");
+        require(success, "Fail transfer native");
+
+        emit Withdrawn(msg.sender, _amount);
     }
 }

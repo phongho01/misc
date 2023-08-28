@@ -11,28 +11,58 @@ const config: HardhatUserConfig = {
     },
     bscTestnet: {
       url: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
-      accounts: [process.env.DEPLOY_ACCOUNT!],
+      accounts: [
+        process.env.DEPLOY_ACCOUNT_1!,
+        process.env.DEPLOY_ACCOUNT_2!,
+        process.env.DEPLOY_ACCOUNT_3!,
+        process.env.DEPLOY_ACCOUNT_4!
+      ],
     },
     sepolia: {
       url: `https://ethereum-sepolia.blockpi.network/v1/rpc/public`,
-      accounts: [process.env.DEPLOY_ACCOUNT!],
+      accounts: [
+        process.env.DEPLOY_ACCOUNT_1!,
+        process.env.DEPLOY_ACCOUNT_2!,
+        process.env.DEPLOY_ACCOUNT_3!,
+        process.env.DEPLOY_ACCOUNT_4!
+      ],
     },
     mainnet: {
       url: 'https://bsc-dataseed1.ninicoin.io',
-      accounts: [process.env.DEPLOY_ACCOUNT!],
+      accounts: [
+        process.env.DEPLOY_ACCOUNT_1!,
+        process.env.DEPLOY_ACCOUNT_2!,
+        process.env.DEPLOY_ACCOUNT_3!,
+        process.env.DEPLOY_ACCOUNT_4!
+      ],
     },
     mumbai: {
       url: 'https://polygon-mumbai.blockpi.network/v1/rpc/public	',
-      accounts: [process.env.DEPLOY_ACCOUNT!],
+      accounts: [
+        process.env.DEPLOY_ACCOUNT_1!,
+        process.env.DEPLOY_ACCOUNT_2!,
+        process.env.DEPLOY_ACCOUNT_3!,
+        process.env.DEPLOY_ACCOUNT_4!
+      ],
       chainId: 80001,
     },
     cvcTestnet: {
       url: 'https://rpc-kura.cross.technology',
-      accounts: [process.env.DEPLOY_ACCOUNT!],
+      accounts: [
+        process.env.DEPLOY_ACCOUNT_1!,
+        process.env.DEPLOY_ACCOUNT_2!,
+        process.env.DEPLOY_ACCOUNT_3!,
+        process.env.DEPLOY_ACCOUNT_4!
+      ],
     },
     scroll_alpha: {
       url: 'https://alpha-rpc.scroll.io/l2',
-      accounts: [process.env.DEPLOY_ACCOUNT!],
+      accounts: [
+        process.env.DEPLOY_ACCOUNT_1!,
+        process.env.DEPLOY_ACCOUNT_2!,
+        process.env.DEPLOY_ACCOUNT_3!,
+        process.env.DEPLOY_ACCOUNT_4!
+      ],
     },
   },
   etherscan: {

@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
-contract LeagueOfLegends is ERC721Enumerable {
+contract KwangdongFreecs is ERC721Enumerable {
     using Strings for uint256;
     using EnumerableSet for EnumerableSet.UintSet;
     using Counters for Counters.Counter;
@@ -47,7 +47,7 @@ contract LeagueOfLegends is ERC721Enumerable {
 
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
         require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token!");
-        return string(abi.encodePacked(baseURI, tokenId.toString(), baseExtension));
+        return string(abi.encodePacked(baseURI));
     }
 
     function tokensOfOwner(address _owner) external view returns (uint256[] memory) {
