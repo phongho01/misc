@@ -181,3 +181,56 @@ export const LPL: Record<string, any> = {
     baseURI: "https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/58/Weibo_Gaminglogo_square.png/revision/latest/scale-to-width-down/123?cb=20211122163901",
   }
 };
+
+export const LEC: Record<string, any> = {
+  G2Esports: {
+    name: 'G2 Esports',
+    symbol: 'G2',
+    baseURI: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/50/G2_Esportslogo_std.png/revision/latest?cb=20230426141941',
+  },
+  Fnatic: {
+    name: 'Fnatic',
+    symbol: 'FNC',
+    baseURI: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/48/Fnaticlogo_std.png/revision/latest?cb=20200124162848',
+  },
+  Excel: {
+    name: 'Excel',
+    symbol: 'XL',
+    baseURI: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/b/b5/Excel_Esportslogo_std.png/revision/latest?cb=20201119153406',
+  },
+  TeamHeretics: {
+    name: 'Team Heretics',
+    symbol: 'TH',
+    baseURI: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/c0/Team_Hereticslogo_std.png/revision/latest?cb=20221027072632',
+  },
+  TeamBDS: {
+    name: 'Team BDS',
+    symbol: 'BDS',
+    baseURI: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/0e/Team_BDSlogo_std.png/revision/latest?cb=20220111205749',
+  },
+  SKGaming: {
+    name: 'SK Gaming',
+    symbol: 'SK',
+    baseURI: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e3/SK_Gaminglogo_std.png/revision/latest?cb=20221129151514',
+  },
+  MADLions: {
+    name: 'MAD Lions',
+    symbol: 'MAD',
+    baseURI: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/f3/MAD_Lionslogo_std.png/revision/latest?cb=20230703140614',
+  },
+  KOI: {
+    name: 'KOI',
+    symbol: 'KOI',
+    baseURI: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e5/KOI_%28Spanish_Team%29logo_std.png/revision/latest?cb=20221224092134',
+  },
+  Astralis: {
+    name: 'Astralis',
+    symbol: 'Astralis',
+    baseURI: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/37/Astralislogo_std.png/revision/latest?cb=20201206160533',
+  },
+  TeamVitality: {
+    name: 'Team Vitality',
+    symbol: 'VIT',
+    baseURI: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/63/Team_Vitalitylogo_std.png/revision/latest?cb=20230224185634',
+  }
+};

@@ -49,9 +49,14 @@ async function main() {
   // await tx.wait();
   // await LoL.connect(deployer).burn(1);
 
-  // const ERC20 = await ethers.getContractFactory("LiteCoin");
-  // const erc20 = ERC20.attach("0x603c668fd2dd8477b755f43c9ccac6a409684717")
-  // console.log(await erc20.totalSupply())
+  const ERC20 = await ethers.getContractFactory("LiteCoin");
+
+  const erc20Addresses = ['0x985F6AC9BA18C97CE59C1334DF716074EF02A684', '0x9EAEF20D024F7C2AD9461CB6543B845C286B5CB7']
+  for(let i = 0; i < erc20Addresses.length; i++) {
+    const erc20 = ERC20.attach(erc20Addresses[i])
+    console.log(erc20Addresses[i], await erc20.name())
+  }
+
 
   // const tx = {
   //   to: '0xbf4e57eA10b8D19Ad436293818469758145ee915',
