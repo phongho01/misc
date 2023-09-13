@@ -28,7 +28,7 @@ contract ChonkSociety is ERC721URIStorage {
      * @notice null Constructor
      * @param _baseURI Base URI of NFT
      */
-    constructor(string memory _baseURI) ERC721("GAM Esports", "GAM") {
+    constructor(string memory _baseURI) ERC721("Chonk Society", "CHONK") {
         baseURI = _baseURI;
     }
 

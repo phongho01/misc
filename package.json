@@ -12,7 +12,8 @@
     "deploy-tether-bsc": "cross-env CONTRACT_TYPE=tether npx hardhat run scripts/deploy.ts --network bscTestnet",
     "deploy-tether-cvc": "cross-env CONTRACT_TYPE=tether npx hardhat run scripts/deploy.ts --network cvcTestnet",
     "deploy-nft-bsc": "cross-env CONTRACT_TYPE=nft npx hardhat run scripts/deploy.ts --network bscTestnet",
-    "deploy-nft-cvc": "cross-env CONTRACT_TYPE=nft npx hardhat run scripts/deploy.ts --network cvcTestnet"
+    "deploy-nft-cvc": "cross-env CONTRACT_TYPE=nft npx hardhat run scripts/deploy.ts --network cvcTestnet",
+    "deploy-nft-xdc": "cross-env CONTRACT_TYPE=nft npx hardhat run scripts/deploy.ts --network xdcTestnet"
   },
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.3",
@@ -20,6 +21,7 @@
     "@poanet/solidity-flattener": "^3.0.9",
     "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
-    "sol-merger": "^4.4.0"
+    "sol-merger": "^4.4.0",
+    "sol2uml": "^2.5.14"
   }
 }

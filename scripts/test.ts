@@ -1,5 +1,6 @@
 require('dotenv').config();
 import { ethers } from 'hardhat';
+import { randomIntFromInterval } from './deploy-lol-team'
 
 const ONE_GWEI = ethers.utils.parseUnits('1', 9);
 const BASE_URI = 'https://chonksociety.s3.us-east-2.amazonaws.com/metadata/';
@@ -49,13 +50,13 @@ async function main() {
   // await tx.wait();
   // await LoL.connect(deployer).burn(1);
 
-  const ERC20 = await ethers.getContractFactory("LiteCoin");
+  // const ERC20 = await ethers.getContractFactory("LiteCoin");
 
-  const erc20Addresses = ['0x985F6AC9BA18C97CE59C1334DF716074EF02A684', '0x9EAEF20D024F7C2AD9461CB6543B845C286B5CB7']
-  for(let i = 0; i < erc20Addresses.length; i++) {
-    const erc20 = ERC20.attach(erc20Addresses[i])
-    console.log(erc20Addresses[i], await erc20.name())
-  }
+  // const erc20Addresses = ['0x985F6AC9BA18C97CE59C1334DF716074EF02A684', '0x9EAEF20D024F7C2AD9461CB6543B845C286B5CB7']
+  // for(let i = 0; i < erc20Addresses.length; i++) {
+  //   const erc20 = ERC20.attach(erc20Addresses[i])
+  //   console.log(erc20Addresses[i], await erc20.name())
+  // }
 
 
   // const tx = {
@@ -76,6 +77,12 @@ async function main() {
   // tx.gasPrice = 130000000;
 
   // await deployer.sendTransaction(tx);
+
+  const ChonkSociety = await ethers.getContractFactory('ChonkSociety');
+  const chonk = ChonkSociety.attach("xdc78fC5Da1AD4Dd3f251bA3118BCFF0d9E2dD7b8aB");
+  // const tx = await chonk.connect(deployer).mint(accounts[randomIntFromInterval(0, 2)].address, randomIntFromInterval(3, 10));
+  // console.log('hash', tx.hash)
+  console.log(await chonk.name())
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -5,7 +5,7 @@ import { LEC } from '../data/LoLTeam';
 
 const ONE_GWEI = ethers.utils.parseUnits('1', 9);
 
-function randomIntFromInterval(min: number, max: number): number {
+export function randomIntFromInterval(min: number, max: number): number {
   // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }

@@ -64,6 +64,15 @@ const config: HardhatUserConfig = {
         process.env.DEPLOY_ACCOUNT_4!
       ],
     },
+    xdcTestnet: {
+      url: 'https://apothem.xdcrpc.com',
+      accounts: [
+        process.env.DEPLOY_ACCOUNT_1!,
+        process.env.DEPLOY_ACCOUNT_2!,
+        process.env.DEPLOY_ACCOUNT_3!,
+        process.env.DEPLOY_ACCOUNT_4!
+      ],
+    },
   },
   etherscan: {
     apiKey: {
