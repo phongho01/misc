@@ -1,6 +1,7 @@
 require('dotenv').config();
 import { ethers } from 'hardhat';
-import { randomIntFromInterval } from './deploy-lol-team'
+import { randomIntFromInterval } from './deploy-lol-team';
+import ERC20JSON from '../artifacts/contracts/Tether.sol/Tether.json'
 
 const ONE_GWEI = ethers.utils.parseUnits('1', 9);
 const BASE_URI = 'https://chonksociety.s3.us-east-2.amazonaws.com/metadata/';
@@ -8,7 +9,7 @@ const BASE_URI = 'https://chonksociety.s3.us-east-2.amazonaws.com/metadata/';
 async function main() {
   console.log('========== STARTING ==========');
   const [deployer, ...accounts] = await ethers.getSigners();
-  console.log('deployer', deployer.address)
+  console.log('deployer', deployer.address);
 
   // const nonce = await deployer.getTransactionCount();
   // console.log('nonce', nonce);
@@ -45,7 +46,6 @@ async function main() {
   // const tx = await LoL.connect(deployer).mint(deployer.address, 3);
   // const tx = await LoL.connect(deployer).transferFrom(deployer.address, "0x0000000000000000000000000000000000000000", 8);
 
-  
   // console.log(tx.hash);
   // await tx.wait();
   // await LoL.connect(deployer).burn(1);
@@ -57,7 +57,6 @@ async function main() {
   //   const erc20 = ERC20.attach(erc20Addresses[i])
   //   console.log(erc20Addresses[i], await erc20.name())
   // }
-
 
   // const tx = {
   //   to: '0xbf4e57eA10b8D19Ad436293818469758145ee915',
@@ -78,11 +77,22 @@ async function main() {
 
   // await deployer.sendTransaction(tx);
 
-  const ChonkSociety = await ethers.getContractFactory('ChonkSociety');
-  const chonk = ChonkSociety.attach("xdc78fC5Da1AD4Dd3f251bA3118BCFF0d9E2dD7b8aB");
-  // const tx = await chonk.connect(deployer).mint(accounts[randomIntFromInterval(0, 2)].address, randomIntFromInterval(3, 10));
-  // console.log('hash', tx.hash)
-  console.log(await chonk.name())
+  const Tether = await ethers.getContractFactory('Tether');
+  const tether = Tether.attach("0x3946b20e3edf732627bbab7d4e33133e6a6f20e9");
+  const tx = await tether.mint("0x2221C6C1dd592b9dffCeA63F5199F99B900C486b", ethers.utils.parseUnits('368', 18))
+  console.log(tx.hash)
+  // console.log(await tether.balanceOf("0xb2979a091059735a26ab8dc189230072f878d873"))
+  // const tether = await Tether.deploy();
+  // console.log('tether', tether.address);
+  // await tether.deployed();
+
+  // console.log(await tether.balanceOf("0x2d109e2eb5093e5ac83cc856bbe9d79e745b4dc0"))
+
+
+  // const tx = await tether.connect(deployer).mint(deployer.address, 1000);
+  console.log('tx', await tether.balanceOf("0xc8429C05315Ae47FFc0789A201E5F53E93D591D4"));
+  console.log('tx', await tether.name())
+  // await tx.wait();
 }
 
 // We recommend this pattern to be able to use async/await everywhere

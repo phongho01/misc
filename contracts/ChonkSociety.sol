@@ -28,7 +28,7 @@ contract ChonkSociety is ERC721URIStorage {
      * @notice null Constructor
      * @param _baseURI Base URI of NFT
      */
-    constructor(string memory _baseURI) ERC721("Chonk Society", "CHONK") {
+    constructor(string memory _baseURI) ERC721("Pudgy Penguin", "Lil") {
         baseURI = _baseURI;
     }
 
@@ -46,7 +46,7 @@ contract ChonkSociety is ERC721URIStorage {
 
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
         require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token!");
-        return string(abi.encodePacked(baseURI, tokenId.toString(), baseExtension));
+        return string(abi.encodePacked(baseURI, tokenId.toString()));
     }
 
     function tokensOfOwner(address _owner) external view returns (uint256[] memory) {

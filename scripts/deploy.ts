@@ -18,36 +18,36 @@ async function main() {
     case CONTRACT_TYPES.BANK_SINGLE_FILE: {
       const Bank_factory = await ethers.getContractFactory('Bank');
       const bank = await Bank_factory.deploy();
+      console.log('bank contract ===>', bank.address);
       await bank.deployed();
 
-      console.log('bank contract ===>', bank.address);
       break;
     }
 
     case CONTRACT_TYPES.BANK_MULTIPLE_FILE: {
       const Bank_factory = await ethers.getContractFactory('BankMultipleFile');
       const bank = await Bank_factory.deploy();
+      console.log('bank multiple file contract ===>', bank.address);
       await bank.deployed();
 
-      console.log('bank multiple file contract ===>', bank.address);
       break;
     }
 
     case CONTRACT_TYPES.TETHER: {
       const Tether = await ethers.getContractFactory('Tether');
       const tether = await Tether.deploy();
+      console.log('tether', tether.address);
       await tether.deployed();
 
-      console.log('tether', tether.address);
       break;
     }
 
     case CONTRACT_TYPES.NFT: {
       const ChonkSociety = await ethers.getContractFactory('ChonkSociety');
-      const chonk = await ChonkSociety.deploy(BASE_URI);
+      const chonk = await ChonkSociety.deploy('https://nft.blockgames.com/dice/');
+      console.log('chonk', chonk.address);
       await chonk.deployed();
 
-      console.log('chonk', chonk.address);
       break;
     }
   }

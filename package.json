@@ -21,6 +21,8 @@
     "@poanet/solidity-flattener": "^3.0.9",
     "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
+    "ethereum-private-key-to-public-key": "^0.0.5",
+    "ethereum-public-key-to-address": "^0.0.5",
     "sol-merger": "^4.4.0",
     "sol2uml": "^2.5.14"
   }
