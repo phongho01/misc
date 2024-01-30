@@ -1,7 +1,7 @@
-// SPDX-License-Identifier: SEE LICENSE IN LICENSE
+// SPDX-License-Identifier: MIT
 pragma solidity 0.8.16;
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol";
 
 struct CourseInfo {
     address creator;
@@ -13,20 +13,22 @@ struct CourseInfo {
     uint256 timeCreated;
 }
 
-contract Tether is ERC20 {
+contract Tether is ERC20Upgradeable {
     event CreatedCourse(uint256 courseId, string title, uint256 budget, uint256 reward);
     event RewardedToStudent(uint256 courseId, address student);
     event RewardedToManyStudent(uint256 courseId, address[] students);
     event AddedBudget(uint256 courseId, uint256 amount);
     event WithdrawnBudgetCourse(uint256 courseId);
 
-    using Counters for Counters.Counter;
+    using CountersUpgradeable for CountersUpgradeable.Counter;
 
-    Counters.Counter public courseIds;
+    CountersUpgradeable.Counter public courseIds;
 
     mapping(uint256 => CourseInfo) public courseInfos;
 
-    constructor() ERC20("Tether", "USDT") {}
+    function initialize(string memory name, string memory symbol) public initializer {
+        __ERC20_init(name, symbol);
+    }
 
     function mint(address _to, uint256 _amount) external {
         _mint(_to, _amount);
@@ -68,7 +70,7 @@ contract Tether is ERC20 {
         CourseInfo storage course = courseInfos[_courseId];
         require(course.budgetAvailable >= course.reward, "Budget is not enough");
         course.budgetAvailable -= course.reward;
-        ERC20(address(this)).transfer(_student, course.reward);
+        ERC20Upgradeable(address(this)).transfer(_student, course.reward);
 
         emit RewardedToStudent(_courseId, _student);
     }
@@ -79,7 +81,7 @@ contract Tether is ERC20 {
         for (uint256 i = 0; i < _students.length; i++) {
             require(course.budgetAvailable >= course.reward, "Budget is not enough");
             course.budgetAvailable -= course.reward;
-            ERC20(address(this)).transfer(_students[i], course.reward);
+            ERC20Upgradeable(address(this)).transfer(_students[i], course.reward);
         }
 
         emit RewardedToManyStudent(_courseId, _students);
@@ -88,7 +90,7 @@ contract Tether is ERC20 {
     function withdrawBudgetCourse(uint256 _courseId, uint256 _amount) external {
         require(courseInfos[_courseId].creator == _msgSender(), "Caller is not course's creator");
         require(courseInfos[_courseId].budgetAvailable >= _amount, "Not enough balance");
-        ERC20(address(this)).transfer(_msgSender(), _amount);
+        ERC20Upgradeable(address(this)).transfer(_msgSender(), _amount);
         courseInfos[_courseId].budgetAvailable -= _amount;
 
         emit WithdrawnBudgetCourse(_courseId);

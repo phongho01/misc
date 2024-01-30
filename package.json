@@ -1,8 +1,22 @@
 {
   "name": "hardhat-project",
   "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomicfoundation/hardhat-ethers": "^3.0.5",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
-    "hardhat": "^2.16.1"
+    "@nomicfoundation/hardhat-verify": "^2.0.3",
+    "@nomiclabs/hardhat-etherscan": "^3.1.8",
+    "@openzeppelin/hardhat-upgrades": "^3.0.1",
+    "@typechain/ethers-v5": "^10.2.1",
+    "@typechain/hardhat": "^6.1.6",
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "^10.0.6",
+    "chai": "^4.3.10",
+    "hardhat": "^2.16.1",
+    "hardhat-gas-reporter": "^1.0.9",
+    "solidity-coverage": "^0.8.5",
+    "typechain": "^8.3.2"
   },
   "scripts": {
     "deploy-bank-bsc": "cross-env CONTRACT_TYPE=bank-single-file npx hardhat run scripts/deploy.ts --network bscTestnet",
@@ -16,14 +30,34 @@
     "deploy-nft-xdc": "cross-env CONTRACT_TYPE=nft npx hardhat run scripts/deploy.ts --network xdcTestnet"
   },
   "dependencies": {
+    "@ethereumjs/common": "2.6.0",
+    "@ethereumjs/rlp": "^5.0.1",
+    "@ethereumjs/tx": "3.4.0",
+    "@ethereumjs/util": "^9.0.1",
     "@nomiclabs/hardhat-ethers": "^2.2.3",
     "@openzeppelin/contracts": "^4.9.2",
+    "@openzeppelin/contracts-upgradeable": "^4.9.5",
     "@poanet/solidity-flattener": "^3.0.9",
+    "@polkadot/api": "^10.11.1",
+    "@solana/web3.js": "^1.89.1",
+    "@substrate/txwrapper-polkadot": "^7.1.1",
+    "add": "^2.0.6",
+    "axios": "^1.6.2",
+    "bignumber.js": "^9.1.2",
     "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "ethereum-private-key-to-public-key": "^0.0.5",
     "ethereum-public-key-to-address": "^0.0.5",
+    "ethers": "^6.9.1",
+    "iotex-antenna": "^0.30.10",
+    "lodash": "^4.17.21",
+    "sha256": "^0.2.0",
     "sol-merger": "^4.4.0",
-    "sol2uml": "^2.5.14"
+    "sol2uml": "^2.5.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2",
+    "web3": "^1.6.1",
+    "xrpl": "^2.0.2",
+    "yarn": "^1.22.21"
   }
 }

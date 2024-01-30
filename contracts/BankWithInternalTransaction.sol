@@ -5,7 +5,7 @@ contract BankWithInternalTransaction {
     event Deposited(address indexed account, uint256 amount);
     event Withdrawn(address indexed account, uint256 amount);
     event Transferred(address indexed from, address indexed to, uint256 amount);
-    event Airdropped(address indexed from, address[] to, uint256 amount);
+    event Airdropped(address indexed from, address[] to, uint256[] amounts);
 
     /**
      * @notice Address to balance of account
@@ -63,13 +63,21 @@ contract BankWithInternalTransaction {
      * @dev everyone can call
      * @param _to Receiver
      */
-    function airdrop(address[] memory _to) external payable {
-        uint256 amount = msg.value / _to.length;
+    function airdrop(address[] memory _to, uint256[] memory _amounts) external {
+        uint256 _totalAmount = 0;
         for (uint256 i = 0; i < _to.length; i++) {
-            (bool success, ) = _to[i].call{ value: amount }("");
+            _totalAmount += _amounts[i];
+        }
+
+        require(_totalAmount <= balanceOf[msg.sender], "Balance is not enough!");
+
+        balanceOf[msg.sender] -= _totalAmount;
+
+        for (uint256 i = 0; i < _to.length; i++) {
+            (bool success, ) = _to[i].call{ value: _amounts[i] }("");
             require(success, "Fail transfer native!!!");
         }
 
-        emit Airdropped(msg.sender, _to, msg.value);
+        emit Airdropped(msg.sender, _to, _amounts);
     }
 }

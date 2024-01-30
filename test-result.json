@@ -1,0 +1,76 @@
+[
+  {
+    "tx": {
+      "hash": "73fe2ed9ddebac1eedd0e32b1d216342b34884c77166081008ca075015a56d7c",
+      "block": "47fc59f8950fb61eb0b8307d602d6480df74e599ed5ef72e340e1aa96b153cbd",
+      "block_height": 9330125,
+      "block_time": 1695544854,
+      "slot": 103978563,
+      "index": 3,
+      "output_amount": [{ "unit": "lovelace", "quantity": "136211446649" }],
+      "fees": "171705",
+      "deposit": "0",
+      "size": 366,
+      "invalid_before": null,
+      "invalid_hereafter": "103985738",
+      "utxo_count": 4,
+      "withdrawal_count": 0,
+      "mir_cert_count": 0,
+      "delegation_count": 0,
+      "stake_cert_count": 0,
+      "pool_update_count": 0,
+      "pool_retire_count": 0,
+      "asset_mint_or_burn_count": 0,
+      "redeemer_count": 0,
+      "valid_contract": true,
+      "inputs": [
+        {
+          "address": "addr1qx6nartyqt82pc7qzug4d4rv58cmjjky7qk59fp5hm5ks2c7u6x02gghjp0w7z723hwzp9hpz34g8j47ac3nqlm7hlusmft6qw",
+          "amount": [{ "unit": "lovelace", "quantity": "136211618354" }],
+          "tx_hash": "712027e15951b75bcd3bafe0ce81dcf50e42b22e5b35cc0a846ef128b15054f6",
+          "output_index": 0,
+          "data_hash": null,
+          "inline_datum": null,
+          "reference_script_hash": null,
+          "collateral": false,
+          "reference": false
+        }
+      ],
+      "outputs": [
+        {
+          "address": "addr1q8y0mut0lsyc6zpheujk3d6zc6tq94h0nhdca4zj8y46mfez2rfgmjw4ju8mz49v876l0kegerkm54cxaq444rdfzvqq66t4wk",
+          "amount": [{ "unit": "lovelace", "quantity": "10000000000" }],
+          "output_index": 0,
+          "data_hash": null,
+          "inline_datum": null,
+          "collateral": false,
+          "reference_script_hash": null
+        },
+        {
+          "address": "addr1qyuule9f8hzwpahwwa5sxd38yrctl5cdqgn0d7t2sxf7g2s7u6x02gghjp0w7z723hwzp9hpz34g8j47ac3nqlm7hluse0sxdl",
+          "amount": [{ "unit": "lovelace", "quantity": "11000000000" }],
+          "output_index": 1,
+          "data_hash": null,
+          "inline_datum": null,
+          "collateral": false,
+          "reference_script_hash": null
+        },
+        {
+          "address": "addr1qyuule9f8hzwpahwwa5sxd38yrctl5cdqgn0d7t2sxf7g2s7u6x02gghjp0w7z723hwzp9hpz34g8j47ac3nqlm7hluse0sxdl",
+          "amount": [{ "unit": "lovelace", "quantity": "115211446649" }],
+          "output_index": 2,
+          "data_hash": null,
+          "inline_datum": null,
+          "collateral": false,
+          "reference_script_hash": null
+        }
+      ]
+    },
+    "block": {
+      "number": 9330125,
+      "timestamp": 1695544854,
+      "hash": "47fc59f8950fb61eb0b8307d602d6480df74e599ed5ef72e340e1aa96b153cbd",
+      "fee": "171705"
+    }
+  }
+]
