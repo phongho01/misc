@@ -1,13 +1,14 @@
 require('dotenv').config();
-import { ethers, network, run, upgrades } from 'hardhat';
+import { ethers  } from 'hardhat';
 import fs from 'fs';
 
 async function main() {
   const accounts = await ethers.getSigners();
   console.log('========== DEPLOY ==========');
-  const Tether_Factory = await ethers.getContractFactory('Tether');
-  const tether = await upgrades.deployProxy(Tether_Factory, ['Tether', 'USDT']);
-  console.log("Tether_Factory deployed to:", await tether.getAddress());
+  const WAVE_Factory = await ethers.getContractFactory('WAVE');
+  const wave = await WAVE_Factory.deploy('WAVE', 'WAVE');
+  console.log("WAVE_Factory deployed to:", await wave.getAddress());
+  
 
   // const tx = {
   //   value: ethers.utils.parseEther('0.0001'),
